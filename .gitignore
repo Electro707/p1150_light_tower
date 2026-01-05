@@ -1,3 +1,9 @@
 *.3mf
-*.stl
+./*.stl
 *.FCBak
+
+# esphome secret
+secrets.yaml
+
+# esphome build
+.esphome/

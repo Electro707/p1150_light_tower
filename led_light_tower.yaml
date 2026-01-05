@@ -1,0 +1,81 @@
+# S1153 Rev 1.0
+esphome:
+  name: light-tower-1
+
+esp8266:
+  board: d1_mini_lite
+
+# Enable logging
+# logger:
+#   baud_rate: 115200
+
+# Enable Home Assistant API
+api:
+
+
+# web_server:
+#   port: 80
+#   log: false
+
+ota:
+  - platform: esphome
+    password: ""
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_pass
+
+  # Enable fallback hotspot (captive portal) in case wifi connection fails
+  ap:
+    ssid: "Smart-Switch-1 Fallback Hotspot"
+    password: !secret wifi_fb_pass
+
+captive_portal:
+
+
+# uart:
+#   rx_pin: RX
+#   baud_rate: 4800
+#   parity: EVEN # required since 2024-08
+
+binary_sensor:
+  - platform: status
+    name: "status"
+
+sensor:
+  - platform: wifi_signal
+    name: "wifi signal"
+    update_interval: 60s
+
+time:
+  - platform: sntp
+    id: the_time
+
+switch:
+  - platform: gpio
+    name: "Low Segment"
+    pin: GPIO4
+    id: seg0
+    restore_mode: ALWAYS_OFF
+    inverted: false
+  - platform: gpio
+    name: "Mid1 Segment"
+    pin: GPIO12
+    id: seg1
+    restore_mode: ALWAYS_OFF
+    inverted: false
+  - platform: gpio
+    name: "Mid2 Segment"
+    pin: GPIO14
+    id: seg2
+    restore_mode: ALWAYS_OFF
+    inverted: false
+  - platform: gpio
+    name: "High Segment"
+    pin: GPIO5
+    id: seg3
+    restore_mode: ALWAYS_OFF
+    inverted: false
+
+status_led:
+  pin: GPIO2
