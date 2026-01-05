@@ -2,14 +2,14 @@
 
 This project started because I got a Banner TL50BL beacon tower light (tl50blrbwy2y2pq to be exact) at a flea market.
 
-![Image of project](.misc/IMG_9658.HEIC)
+![Image of project](.misc/IMG_9658.jpg)
 
 # Build
 This was a one-time build, so the details may be murky (especially on which esp8266 IO goes to which relay), but alas should be enough for replication.
 
 I also added masking tape inside so that the flying buck converters won't accidentally short something out.
 
-![Image of the messy internal wiring](.misc/IMG_9650.HEIC)
+![Image of the messy internal wiring](.misc/IMG_9650.jpg)
 
 ## Enclosure
 The enclosure is designed to be 3D printed, with the M30 thread built into the model. The STL can be found in the [`release`](release) folder.
@@ -28,7 +28,7 @@ First the DC barrel jack, which will be supplied with 12v, is connected to both 
 The ESP-12E is wired so there is a 1k pull-up for RST, EN, GPIO0, and GPIO2, and a 1k pull-down to GND for GPIO15, which are needed for operation. The VCC and GND are connected to the output of the 3.3v buck converter.
 The relay IO pins are connected to some IOs declared in the esphome setup (GPIO4, GPIO12, GPIO14, and GPIO5). I wasn't too peculiar with the IO setup and which relay it went to, so you can either copy the same setup as the esphome config file, or change the config to suite your needs.
 
-![Image of ESP-12E](.misc/IMG_9649.HEIC)
+![Image of ESP-12E](.misc/IMG_9649.jpg)
 
 On the M12 connector, the blue wire is connected to 12v, and the colored wire are connected to each relay's NO (normally open) pin.
 
